@@ -32,7 +32,7 @@ public class BossSword : MonoBehaviour
         costAndDamageCalculator();
 
         //////////////////////////////////////////////////////////////////////////////// CHECK IF CAN PURCHASE
-        if (GameController.data.BossSword.level + GameController.data.bulkBuy <= GameController.data.BossSword.maxLevel && GameController.data.bossTokens >= GameController.data.BossSword.cost)
+        if (GameController.data.BossSword.level + GameController.data.bulkBuy <= GameController.data.BossSword.maxLevel && Boss.bossToken >= GameController.data.BossSword.cost)
         {
             btn.interactable = true;
         }
@@ -41,7 +41,7 @@ public class BossSword : MonoBehaviour
         //////////////////////////////////////////////////////////////////////////////////// IF BUTTON PRESSED
         if (isRacePressed)
         {
-            GameController.data.bossTokens -= GameController.data.BossSword.cost;
+            Boss.bossToken -= GameController.data.BossSword.cost;
             GameController.data.BossSword.level += GameController.data.bulkBuy;
             isRacePressed = false;
         }

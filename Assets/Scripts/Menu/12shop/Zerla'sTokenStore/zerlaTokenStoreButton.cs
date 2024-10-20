@@ -18,7 +18,7 @@ public class zerlaTokenStoreButton : MonoBehaviour
 
     void Update()
     {
-        if (GameController.data.bossKilled >= 10)
+        if (Boss.allBossDefeatedCount >= 10)
         {
             btn.interactable = true; text.text = "Zerla's Token Store";
         } else { btn.interactable = false; text.text = "Kill 10 bosses"; }

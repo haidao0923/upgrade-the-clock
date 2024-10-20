@@ -18,7 +18,7 @@ public class timeShopButton : MonoBehaviour
 
     void Update()
     {
-        if (GameController.data.bossKilled >= 40)
+        if (Boss.allBossDefeatedCount >= 40)
         {
             btn.interactable = true; text.text = "Time Shop";
         }

@@ -40,10 +40,8 @@ public class upgradesScript : MonoBehaviour
         if (upgrades.activeSelf) //change worker to button type
         {
             image.sprite = pressed;
-            if (GameController.data.u1_4Unlocked)
+            if (GameController.data.allUpgrades[4].unlocked == true)
             { ph.SetActive(false); } else { ph.SetActive(true); }
-            if (GameController.data.u1_1MaxCounter == 1 && GameController.data.u1_2MaxCounter == 1 && GameController.data.u1_3MaxCounter == 1 && GameController.data.u1_4MaxCounter == 1)
-            { GameController.data.u1Max = 1; }
         }
         else { image.sprite = unPressed; }
     }

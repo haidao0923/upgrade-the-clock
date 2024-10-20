@@ -14,7 +14,7 @@ public class BossUIButton : MonoBehaviour
     private void OnEnable()
     {
         activeBossId = bossManager.activeBossId;
-        bossManager.activeBosses.Add(activeBossId, boss);
+        BossManager.activeBosses.Add(activeBossId, boss);
         bossManager.activeBossId += 1;
     }
 
@@ -30,7 +30,7 @@ public class BossUIButton : MonoBehaviour
             }
         }
     }
-    
+
     private void Click()
     {
         GameController.data.tbossclicks += 1;
@@ -68,7 +68,7 @@ public class BossUIButton : MonoBehaviour
         {
             Destroy(bossInfoDisplay);
             Destroy(gameObject);
-            bossManager.activeBosses.Remove(activeBossId);
+            BossManager.activeBosses.Remove(activeBossId);
         }
     }
 }

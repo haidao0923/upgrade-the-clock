@@ -11,7 +11,7 @@ public class BossManager : MonoBehaviour
     private int[] bossLevelBias = new int[5];
 
     public int activeBossId;
-    public Dictionary<int, Boss> activeBosses = new Dictionary<int, Boss>();
+    public static Dictionary<int, Boss> activeBosses = new Dictionary<int, Boss>();
 
     void Awake()
     {
@@ -163,6 +163,6 @@ public class BossManager : MonoBehaviour
                     break;
 
             }
-        }       
+        }
     }
 }

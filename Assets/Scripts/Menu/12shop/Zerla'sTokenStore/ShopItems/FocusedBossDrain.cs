@@ -32,7 +32,7 @@ public class FocusedBossDrain : MonoBehaviour
         costAndDamageCalculator();
 
         //////////////////////////////////////////////////////////////////////////////// CHECK IF CAN PURCHASE
-        if (GameController.data.FocusedBossDrain.level + GameController.data.bulkBuy <= GameController.data.FocusedBossDrain.maxLevel && GameController.data.bossTokens >= GameController.data.FocusedBossDrain.cost)
+        if (GameController.data.FocusedBossDrain.level + GameController.data.bulkBuy <= GameController.data.FocusedBossDrain.maxLevel && Boss.bossToken >= GameController.data.FocusedBossDrain.cost)
         {
             btn.interactable = true;
         }
@@ -41,7 +41,7 @@ public class FocusedBossDrain : MonoBehaviour
         //////////////////////////////////////////////////////////////////////////////////// IF BUTTON PRESSED
         if (isRacePressed)
         {
-            GameController.data.bossTokens -= GameController.data.FocusedBossDrain.cost;
+            Boss.bossToken -= GameController.data.FocusedBossDrain.cost;
             GameController.data.FocusedBossDrain.level += GameController.data.bulkBuy;
             isRacePressed = false;
         }
@@ -81,14 +81,9 @@ public class FocusedBossDrain : MonoBehaviour
 
     public void oneSecond()
     {
-        if (GameController.data.activeBosses.Count > 0 && GameController.data.FocusedBossDrain.level > 0)
+        if (BossManager.activeBosses.Count > 0 && GameController.data.FocusedBossDrain.level > 0)
         {
-            GameController.data.activeBosses[0].CHS -= GameController.data.SPC * GameController.data.FocusedBossDrain.effect;
-            GameController.data.activeBosses[0].CHM -= GameController.data.MPC * GameController.data.FocusedBossDrain.effect;
-            GameController.data.activeBosses[0].CHH -= GameController.data.HPC * GameController.data.FocusedBossDrain.effect;
-            GameController.data.activeBosses[0].CHD -= GameController.data.DPC * GameController.data.FocusedBossDrain.effect;
-            GameController.data.activeBosses[0].CHY -= GameController.data.YPC * GameController.data.FocusedBossDrain.effect;
-            GameController.data.activeBosses[0].CHE -= GameController.data.EPC * GameController.data.FocusedBossDrain.effect;
+            BossManager.activeBosses[0].currentLifetime -= GameController.data.tickPerClick * GameController.data.FocusedBossDrain.effect;
         }
     }
 

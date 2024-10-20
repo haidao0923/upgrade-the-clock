@@ -15,6 +15,6 @@ public class bossStatusTooltipScript : MonoBehaviour
 
     void Update()
     {
-        text.text = "x" + GameController.data.bossTokens;
+        text.text = "x" + Boss.bossToken;
     }
 }

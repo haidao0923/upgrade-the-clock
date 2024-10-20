@@ -12,9 +12,9 @@ public class upgradesTooltipScript : MonoBehaviour
     {
         text = GetComponent<Text>();
 	}
-	
+
 	void Update ()
     {
-        text.text = "Total TPC: " + GameController.data.TPC;
+        text.text = "Total TPC: " + GameController.data.tickPerClickDisplay;
 	}
 }

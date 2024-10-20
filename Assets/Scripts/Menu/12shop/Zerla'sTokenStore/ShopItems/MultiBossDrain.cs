@@ -32,7 +32,7 @@ public class MultiBossDrain : MonoBehaviour
         costAndDamageCalculator();
 
         //////////////////////////////////////////////////////////////////////////////// CHECK IF CAN PURCHASE
-        if (GameController.data.MultiBossDrain.level + GameController.data.bulkBuy <= GameController.data.MultiBossDrain.maxLevel && GameController.data.bossTokens >= GameController.data.MultiBossDrain.cost)
+        if (GameController.data.MultiBossDrain.level + GameController.data.bulkBuy <= GameController.data.MultiBossDrain.maxLevel && Boss.bossToken >= GameController.data.MultiBossDrain.cost)
         {
             btn.interactable = true;
         }
@@ -41,7 +41,7 @@ public class MultiBossDrain : MonoBehaviour
         //////////////////////////////////////////////////////////////////////////////////// IF BUTTON PRESSED
         if (isRacePressed)
         {
-            GameController.data.bossTokens -= GameController.data.MultiBossDrain.cost;
+            Boss.bossToken -= GameController.data.MultiBossDrain.cost;
             GameController.data.MultiBossDrain.level += GameController.data.bulkBuy;
             isRacePressed = false;
         }
@@ -81,16 +81,11 @@ public class MultiBossDrain : MonoBehaviour
 
     public void oneSecond()
     {
-        if (GameController.data.activeBosses.Count > 0 && GameController.data.MultiBossDrain.level > 0)
+        if (BossManager.activeBosses.Count > 0 && GameController.data.MultiBossDrain.level > 0)
         {
-            foreach (Bosses boss in GameController.data.activeBosses)
+            foreach (Boss boss in BossManager.activeBosses.Values)
             {
-                boss.CHS -= GameController.data.SPC * GameController.data.MultiBossDrain.effect;
-                boss.CHM -= GameController.data.MPC * GameController.data.MultiBossDrain.effect;
-                boss.CHH -= GameController.data.HPC * GameController.data.MultiBossDrain.effect;
-                boss.CHD -= GameController.data.DPC * GameController.data.MultiBossDrain.effect;
-                boss.CHY -= GameController.data.YPC * GameController.data.MultiBossDrain.effect;
-                boss.CHE -= GameController.data.EPC * GameController.data.MultiBossDrain.effect;
+                boss.currentLifetime -= GameController.data.tickPerClick * GameController.data.MultiBossDrain.effect;
             }
         }
     }

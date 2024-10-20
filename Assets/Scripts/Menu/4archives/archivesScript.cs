@@ -56,7 +56,7 @@ public class archivesScript : MonoBehaviour
             Archives archive = GameController.data.pooledArchives[i];
             if (archive.type == "atleastWorkers")
             {
-                if (archive.worker.Population >= archive.typeAmount)
+                if (archive.worker.population >= archive.typeAmount)
                 {
                     archive.unlocked = 1;
                     GameObject secretArchive = archives.transform.Find("secretArchives/" + archive.name).gameObject; secretArchive.transform.SetAsFirstSibling(); secretArchive.SetActive(true);
@@ -65,7 +65,7 @@ public class archivesScript : MonoBehaviour
             }
             else if (archive.type == "special")
             {
-                if (GameController.data.activeBosses.Count > 0 && invoked1 == 0)
+                if (BossManager.activeBosses.Count > 0 && invoked1 == 0)
                 {
                     invoked1 = 1; count1 = GameController.data.tbossclicks; Invoke("PacifistMoreLikePacifier", 180);
                 }
@@ -95,7 +95,7 @@ public class archivesScript : MonoBehaviour
 
     public void PacifistMoreLikePacifier()
     {
-        GameController.data.PacifistMoreLikePacifier.unlocked = 1; GameController.data.unlockedWorkers.Add(GameController.data.Snowman);
+        GameController.data.PacifistMoreLikePacifier.unlocked = 1; GameController.data.allWorkers[4].unlocked = true;
         GameObject secretArchive = archives.transform.Find("secretArchives/" + GameController.data.PacifistMoreLikePacifier.name).gameObject; secretArchive.transform.SetAsFirstSibling(); secretArchive.SetActive(true);
         openMenu();
     }

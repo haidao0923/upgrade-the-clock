@@ -15,6 +15,6 @@ public class workersTooltipScript : MonoBehaviour
 
     void Update()
     {
-        text.text = "Total TPS: " + GameController.data.TPS;
+        text.text = "Total TPS: " + GameController.data.tickPerSecond;
     }
 }

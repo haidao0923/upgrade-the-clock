@@ -32,7 +32,7 @@ public class BossSummoningRitual : MonoBehaviour
         costAndDamageCalculator();
 
         //////////////////////////////////////////////////////////////////////////////// CHECK IF CAN PURCHASE
-        if (GameController.data.BossSummoningRitual.level + GameController.data.bulkBuy <= GameController.data.BossSummoningRitual.maxLevel && GameController.data.bossTokens >= GameController.data.BossSummoningRitual.cost)
+        if (GameController.data.BossSummoningRitual.level + GameController.data.bulkBuy <= GameController.data.BossSummoningRitual.maxLevel && Boss.bossToken >= GameController.data.BossSummoningRitual.cost)
         {
             btn.interactable = true;
         }
@@ -41,7 +41,7 @@ public class BossSummoningRitual : MonoBehaviour
         //////////////////////////////////////////////////////////////////////////////////// IF BUTTON PRESSED
         if (isRacePressed)
         {
-            GameController.data.bossTokens -= GameController.data.BossSummoningRitual.cost;
+            Boss.bossToken -= GameController.data.BossSummoningRitual.cost;
             GameController.data.BossSummoningRitual.level += GameController.data.bulkBuy;
             isRacePressed = false;
         }

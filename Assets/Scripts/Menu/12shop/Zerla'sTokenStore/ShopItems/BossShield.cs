@@ -32,7 +32,7 @@ public class BossShield : MonoBehaviour
         costAndDamageCalculator();
 
         //////////////////////////////////////////////////////////////////////////////// CHECK IF CAN PURCHASE
-        if (GameController.data.BossShield.level + GameController.data.bulkBuy <= GameController.data.BossShield.maxLevel && GameController.data.bossTokens >= GameController.data.BossShield.cost)
+        if (GameController.data.BossShield.level + GameController.data.bulkBuy <= GameController.data.BossShield.maxLevel && Boss.bossToken >= GameController.data.BossShield.cost)
         {
             btn.interactable = true;
         }
@@ -41,7 +41,7 @@ public class BossShield : MonoBehaviour
         //////////////////////////////////////////////////////////////////////////////////// IF BUTTON PRESSED
         if (isRacePressed)
         {
-            GameController.data.bossTokens -= GameController.data.BossShield.cost;
+            Boss.bossToken -= GameController.data.BossShield.cost;
             GameController.data.BossShield.level += GameController.data.bulkBuy;
             isRacePressed = false;
         }

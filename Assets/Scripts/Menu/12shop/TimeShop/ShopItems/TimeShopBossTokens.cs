@@ -52,29 +52,29 @@ public class TimeShopBossTokens : MonoBehaviour
     {
         int temp = items.IndexOf(go); Debug.Log(go);
         GameController.data.timeCoins -= GameController.data.TimeShopBossTokensCost[temp];      //change unit
-        GameController.data.bossTokens += GameController.data.TimeShopBossTokensReward[temp];   //change unit
+        Boss.bossToken += GameController.data.TimeShopBossTokensReward[temp];   //change unit
     }
 
     void unlockNewTiers()
     {
-        if (GameController.data.bossKilled >= 40 && items[0].activeSelf == false)                                   //Unlock new tiers
+        if (Boss.allBossDefeatedCount >= 40 && items[0].activeSelf == false)                                   //Unlock new tiers
         { items[0].SetActive(true); }
-        if (GameController.data.bossKilled >= 60 && items[1].activeSelf == false)
+        if (Boss.allBossDefeatedCount >= 60 && items[1].activeSelf == false)
         { items[1].SetActive(true); }
-        else if (GameController.data.bossKilled < 60) { items[1].SetActive(false); }
-        if (GameController.data.bossKilled >= 80 && items[2].activeSelf == false)
+        else if (Boss.allBossDefeatedCount < 60) { items[1].SetActive(false); }
+        if (Boss.allBossDefeatedCount >= 80 && items[2].activeSelf == false)
         { items[2].SetActive(true); }
-        else if (GameController.data.bossKilled < 80) { items[2].SetActive(false); }
-        if (GameController.data.bossKilled >= 110 && items[3].activeSelf == false)
+        else if (Boss.allBossDefeatedCount < 80) { items[2].SetActive(false); }
+        if (Boss.allBossDefeatedCount >= 110 && items[3].activeSelf == false)
         { items[3].SetActive(true); }
-        else if (GameController.data.bossKilled < 110) { items[3].SetActive(false); }
-        if (GameController.data.bossKilled >= 150 && items[4].activeSelf == false)
+        else if (Boss.allBossDefeatedCount < 110) { items[3].SetActive(false); }
+        if (Boss.allBossDefeatedCount >= 150 && items[4].activeSelf == false)
         { items[4].SetActive(true); }
-        else if (GameController.data.bossKilled < 150) { items[4].SetActive(false); }
-        if (GameController.data.bossKilled >= 200 && items[5].activeSelf == false)
+        else if (Boss.allBossDefeatedCount < 150) { items[4].SetActive(false); }
+        if (Boss.allBossDefeatedCount >= 200 && items[5].activeSelf == false)
         { items[5].SetActive(true); }
-        else if (GameController.data.bossKilled < 200) { items[5].SetActive(false); }
-        if (GameController.data.bossKilled >= 110)                                                                  //Add "more" button
+        else if (Boss.allBossDefeatedCount < 200) { items[5].SetActive(false); }
+        if (Boss.allBossDefeatedCount >= 110)                                                                  //Add "more" button
         {
             more.gameObject.SetActive(true);
         }
